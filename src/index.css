@@ -140,77 +140,21 @@ body {
 }
 
 .section-padding {
-  padding: 100px 0;
+  padding: 80px 0;
 }
 
 @media (max-width: 768px) {
   .section-padding {
-    padding: 60px 0;
+    padding: 40px 0;
   }
-  
-  .floating-whatsapp {
-    bottom: 20px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
-  }
-}
-
-.carousel-container {
-  position: relative;
-  overflow: hidden;
-}
-
-.carousel-track {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-.testimonial-card {
-  background: white;
-  border-radius: 20px;
-  padding: 40px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  position: relative;
-}
-
-.testimonial-card::before {
-  content: '"';
-  position: absolute;
-  top: -10px;
-  left: 30px;
-  font-size: 80px;
-  color: var(--primary-gold);
-  font-family: 'Playfair Display', serif;
-  line-height: 1;
-}
-
-.room-card {
-  background: white;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
-
-.room-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-}
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
 }
 
 .gallery-item {
   position: relative;
-  border-radius: 15px;
   overflow: hidden;
-  aspect-ratio: 4/3;
+  border-radius: 12px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .gallery-item:hover {
@@ -223,7 +167,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(212, 175, 55, 0.8), rgba(232, 197, 71, 0.6));
+  background: rgba(0, 0, 0, 0.7);
   opacity: 0;
   transition: opacity 0.3s ease;
   display: flex;
@@ -301,3 +245,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     border-radius: 15px;
   }
 }
+
+
+
+
+
+
+
+
+

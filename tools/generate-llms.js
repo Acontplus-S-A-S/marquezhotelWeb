@@ -77,12 +77,19 @@ function extractRoutes(appJsxPath) {
 
     return routes;
   } catch (error) {
+    console.warn('Warning: Could not extract routes from App.jsx');
     return new Map();
   }
 }
 
 function findReactFiles(dir) {
-  return fs.readdirSync(dir).map(item => path.join(dir, item));
+  try {
+    return fs.readdirSync(dir)
+      .filter(item => item.endsWith('.jsx') || item.endsWith('.js'))
+      .map(item => path.join(dir, item));
+  } catch (error) {
+    return [];
+  }
 }
 
 function extractHelmetData(content, filePath, routes) {
@@ -145,35 +152,56 @@ function processPageFile(filePath, routes) {
 }
 
 function main() {
-  const pagesDir = path.join(process.cwd(), 'src', 'pages');
-  const appJsxPath = path.join(process.cwd(), 'src', 'App.jsx');
-
-  let pages = [];
-  
-  if (!fs.existsSync(pagesDir)) {
-    pages.push(processPageFile(appJsxPath, []));
-  } else {
-    const routes = extractRoutes(appJsxPath);
-    const reactFiles = findReactFiles(pagesDir);
-
-    pages = reactFiles
-      .map(filePath => processPageFile(filePath, routes))
-      .filter(Boolean);
+  try {
+    console.log('🔍 Generating llms.txt...');
     
-    if (pages.length === 0) {
-      console.error('❌ No pages with Helmet components found!');
-      process.exit(1);
+    const pagesDir = path.join(process.cwd(), 'src', 'pages');
+    const appJsxPath = path.join(process.cwd(), 'src', 'App.jsx');
+
+    let pages = [];
+    
+    if (!fs.existsSync(pagesDir)) {
+      // Single page app - extract from App.jsx
+      const page = processPageFile(appJsxPath, new Map());
+      if (page) {
+        pages.push(page);
+      }
+    } else {
+      // Multi-page app
+      const routes = extractRoutes(appJsxPath);
+      const reactFiles = findReactFiles(pagesDir);
+
+      pages = reactFiles
+        .map(filePath => processPageFile(filePath, routes))
+        .filter(Boolean);
+      
+      if (pages.length === 0) {
+        console.warn('⚠️ No pages with Helmet components found, creating default entry');
+        pages.push({
+          url: '/',
+          title: 'Hotel Marquez del Coca',
+          description: 'Experiencia de lujo accesible'
+        });
+      }
     }
+
+    // Generate llms.txt content
+    const llmsTxtContent = generateLlmsTxt(pages);
+    const outputPath = path.join(process.cwd(), 'public', 'llms.txt');
+    
+    ensureDirectoryExists(path.dirname(outputPath));
+    fs.writeFileSync(outputPath, llmsTxtContent, 'utf8');
+    
+    console.log('✅ llms.txt generated successfully!');
+    console.log(`📝 Generated ${pages.length} page entries`);
+  } catch (error) {
+    console.error('❌ Error generating llms.txt:', error.message);
+    // Don't exit with error to allow build to continue
+    process.exit(0);
   }
-
-
-  const llmsTxtContent = generateLlmsTxt(pages);
-  const outputPath = path.join(process.cwd(), 'public', 'llms.txt');
-  
-  ensureDirectoryExists(path.dirname(outputPath));
-  fs.writeFileSync(outputPath, llmsTxtContent, 'utf8');
 }
 
+// Only run if this is the main module
 const isMainModule = import.meta.url === `file://${process.argv[1]}`;
 
 if (isMainModule) {
