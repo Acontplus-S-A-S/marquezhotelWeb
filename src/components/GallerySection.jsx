@@ -1,4 +1,4 @@
-// GallerySection.jsx - Actualizado con las nuevas imágenes
+// GallerySection.jsx - Con rutas reales de tus imágenes
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
@@ -32,11 +32,11 @@ const GallerySection = ({ onImageClick }) => {
     { id: 'eventos', name: 'Eventos', icon: '🎉' }
   ];
 
-  // NUEVAS IMÁGENES REALES DEL HOTEL
+  // IMÁGENES REALES DE TU HOTEL - Actualizadas con rutas correctas
   const galleryImages = [
     {
       id: 1,
-      src: 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAEsASwDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD9/KKKKK...', // Tu primera imagen - gimnasio
+      src: '/images/gimnasio.webp', // Tu imagen 1 - gimnasio
       alt: 'Centro fitness moderno con equipamiento de última generación y vista a la piscina',
       title: 'Centro Fitness Premium',
       description: 'Gimnasio completamente equipado con la última tecnología en equipamiento deportivo y vistas panorámicas.',
@@ -49,7 +49,7 @@ const GallerySection = ({ onImageClick }) => {
     },
     {
       id: 2,
-      src: 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAEsASwDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD9/KKKKK...', // Tu segunda imagen - lobby
+      src: '/images/lobby.webp', // Tu imagen 2 - lobby
       alt: 'Lobby elegante con diseño interior moderno y fuente de agua',
       title: 'Lobby Principal',
       description: 'Recepción elegante que da la bienvenida con arte contemporáneo y diseño sofisticado.',
@@ -62,7 +62,7 @@ const GallerySection = ({ onImageClick }) => {
     },
     {
       id: 3,
-      src: 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAEsASwDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD9/KKKKK...', // Tu tercera imagen - piscina nocturna
+      src: '/images/piscina.webp', // Tu imagen 3 - piscina nocturna
       alt: 'Piscina infinita con vista panorámica nocturna y iluminación LED',
       title: 'Piscina Nocturna',
       description: 'Disfruta de vistas espectaculares mientras te relajas en nuestra piscina infinita con iluminación especial.',
@@ -75,7 +75,7 @@ const GallerySection = ({ onImageClick }) => {
     },
     {
       id: 4,
-      src: 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAEsASwDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD9/KKKKK...', // Tu cuarta imagen - restaurante elegante
+      src: '/images/restaurante.webp', // Tu imagen 4 - restaurante elegante
       alt: 'Restaurante gourmet con decoración clásica y ambiente elegante',
       title: 'Restaurante Gourmet',
       description: 'Experiencia gastronómica excepcional con platos de autor en un ambiente de máxima elegancia.',
@@ -88,7 +88,7 @@ const GallerySection = ({ onImageClick }) => {
     },
     {
       id: 5,
-      src: 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAEsASwDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD9/KKKKK...', // Tu quinta imagen - spa con bambú
+      src: '/images/spa.webp', // Tu imagen 5 - spa con bambú
       alt: 'Spa de lujo con ambiente zen y decoración natural de bambú',
       title: 'Spa & Wellness Zen',
       description: 'Santuario de bienestar con tratamientos holísticos en un ambiente de máxima tranquilidad.',
@@ -99,10 +99,10 @@ const GallerySection = ({ onImageClick }) => {
       photographer: 'Wellness Team',
       tags: ['spa', 'relajación', 'bienestar', 'masajes', 'zen']
     },
-    // Puedes agregar más imágenes aquí...
+    // Imágenes adicionales de placeholder (puedes agregar más de tu hotel)
     {
       id: 6,
-      src: 'https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80',
+      src: '/images/suite.webp', // Si tienes más imágenes
       alt: 'Suite presidencial con vistas panorámicas y decoración de lujo',
       title: 'Suite Presidencial',
       description: 'La cúspide del lujo hotelero con vistas panorámicas y amenidades exclusivas.',
@@ -115,7 +115,7 @@ const GallerySection = ({ onImageClick }) => {
     },
     {
       id: 7,
-      src: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80',
+      src: '/images/eventos.webp', // Si tienes más imágenes
       alt: 'Salón de eventos para bodas y celebraciones especiales',
       title: 'Salón de Eventos',
       description: 'Espacio elegante para bodas, celebraciones corporativas y eventos memorables.',
@@ -166,18 +166,6 @@ const GallerySection = ({ onImageClick }) => {
     setLightboxImage(null);
   };
 
-  const nextLightboxImage = () => {
-    const nextIndex = (lightboxIndex + 1) % filteredImages.length;
-    setLightboxIndex(nextIndex);
-    setLightboxImage(filteredImages[nextIndex]);
-  };
-
-  const prevLightboxImage = () => {
-    const prevIndex = (lightboxIndex - 1 + filteredImages.length) % filteredImages.length;
-    setLightboxIndex(prevIndex);
-    setLightboxImage(filteredImages[prevIndex]);
-  };
-
   const toggleLike = (imageId, event) => {
     event.stopPropagation();
     setLikedImages(prev => {
@@ -207,7 +195,7 @@ const GallerySection = ({ onImageClick }) => {
               Galería de <span className="text-gradient">Experiencias</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8">
-              Descubre los espacios únicos y momentos mágicos que hacen de tu estancia una experiencia verdaderamente memorable
+              Un vistazo a los momentos y espacios que hacen de nuestro hotel un lugar único.
             </p>
             <div className="flex justify-center gap-8 text-sm text-gray-600 mb-8">
               <div className="flex items-center gap-2">
@@ -288,6 +276,10 @@ const GallerySection = ({ onImageClick }) => {
                                 alt={image.alt}
                                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                                 loading="lazy"
+                                onError={(e) => {
+                                  console.log(`Error loading image: ${image.src}`);
+                                  e.target.src = '/images/placeholder.jpg'; // Fallback image
+                                }}
                               />
                               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                               

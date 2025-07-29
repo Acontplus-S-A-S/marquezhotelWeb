@@ -6,7 +6,7 @@ import HeroSection from '@/components/HeroSection';
 import ReservationBar from '@/components/ReservationBar';
 import ValueProposition from '@/components/ValueProposition';
 import RoomsSection from '@/components/RoomsSection';
-import GallerySection from '@/components/GallerySection';
+//import GallerySection from '@/components/GallerySection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import MapSection from '@/components/MapSection';
 import Footer from '@/components/Footer';
