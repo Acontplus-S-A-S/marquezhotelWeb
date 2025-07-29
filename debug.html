@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head><title>Debug MIME</title></head>
+<body>
+    <h1>Verificación de archivos</h1>
+    <div id="results"></div>
+    <script>
+        fetch('./assets/')
+            .then(r => r.text())
+            .then(html => {
+                const jsFiles = html.match(/href="[^"]*\.js"/g) || [];
+                jsFiles.forEach(async (file) => {
+                    const filename = file.match(/href="([^"]*)"/)[1];
+                    const response = await fetch(`./assets/${filename}`);
+                    document.getElementById('results').innerHTML += 
+                        `<p>${filename}: ${response.status} - ${response.headers.get('content-type')}</p>`;
+                });
+            });
+    </script>
+</body>
+</html>

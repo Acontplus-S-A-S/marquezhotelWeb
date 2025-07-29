@@ -1,21 +1,19 @@
-# Configuración específica para Hostinger
-<IfModule mod_mime.c>
-    RemoveType .js
-    AddType application/javascript .js
-    AddType text/css .css
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ index.html [L]
 </IfModule>
 
 <IfModule mod_headers.c>
-    <FilesMatch "\.js$">
-        Header set Content-Type "application/javascript; charset=utf-8"
-    </FilesMatch>
-</IfModule>
+  Header set X-Powered-By "Hostinger Horizons"
 
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule . /index.html [L]
+  # Cache everything on CDN by default
+  Header set Cache-Control "public, s-maxage=604800, max-age=0"
+  
+  # Cache in browser all assets
+  <If "%{REQUEST_URI} =~ m#^/assets/.*$#">
+    Header set Cache-Control "public, max-age=604800"
+  </If>
 </IfModule>
-
-ErrorDocument 404 /index.html
