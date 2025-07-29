@@ -1,13 +1,21 @@
+# Configuración específica para Hostinger
 <IfModule mod_mime.c>
+    RemoveType .js
     AddType application/javascript .js
-    AddType application/javascript .mjs
     AddType text/css .css
+</IfModule>
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.js$">
+        Header set Content-Type "application/javascript; charset=utf-8"
+    </FilesMatch>
 </IfModule>
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteRule ^index\.html$ - [L]
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule . /index.html [L]
 </IfModule>
+
+ErrorDocument 404 /index.html
